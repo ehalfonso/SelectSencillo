@@ -1,0 +1,32 @@
+﻿@model List<Categoria>;
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Lista de Categorias</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id. Categoria</th>
+                <th>Nombre Categoria</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IdCategoria)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NombreCategoria)</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

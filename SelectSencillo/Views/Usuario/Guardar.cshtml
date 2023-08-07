@@ -1,0 +1,35 @@
+﻿@model Usuario;
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h1>Insertar usuario</h1>
+    </div>
+    <div class="card-header">
+        <form asp-action="Guardar" asp-controller="Usuario" method="post">
+            <div class="form-group mb-2">
+                <input asp-for="NombreUsuario" type="text" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <input asp-for="Telefono" type="text" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                @Html.DropDownListFor(model => model.refCategoria.IdCategoria, (List<SelectListItem>)ViewBag.Lista, "Seleccione una categoría")
+
+                @*<select asp-for="refCategoria" asp-items="@(ViewBag.Lista!=null?new SelectList(ViewBag.Lista,"Value","Text"):new List<SelectListItem>())">
+                    <option value=""> Seleccione la categoria </option>
+                </select>*@
+            </div>
+            <div class="form-group mb-2">
+                <input asp-for="NombreUsuario" type="text" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+    
+</div>
+
