@@ -37,7 +37,23 @@ namespace SelectSencillo.Datos.Implementacion
 
         public bool Guardar(Categoria model)
         {
-            throw new NotImplementedException();
+           using(var conexion=new SqlConnection(_cadenaSql))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("sp_Guardar", conexion);
+                cmd.Parameters.AddWithValue("NombreCategoria", model.NombreCategoria);
+                cmd.CommandType=CommandType.StoredProcedure;
+                int filaAfectadas = cmd.ExecuteNonQuery();
+                if(filaAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
         }
     }
 }
