@@ -18,11 +18,11 @@
                 <input asp-for="Telefono" type="text" class="form-control" />
             </div>
             <div class="form-group mb-2">
-                @Html.DropDownListFor(model => model.refCategoria.IdCategoria, (List<SelectListItem>)ViewBag.Lista, "Seleccione una categoría")
+                @*@Html.DropDownListFor(model => model.refCategoria.IdCategoria, (List<SelectListItem>)ViewBag.Lista, "Seleccione una categoría")*@
 
-                @*<select asp-for="refCategoria" asp-items="@(ViewBag.Lista!=null?new SelectList(ViewBag.Lista,"Value","Text"):new List<SelectListItem>())">
+                <select asp-for="refCategoria.IdCategoria" asp-items="@(ViewBag.Lista!=null?new SelectList(ViewBag.Lista,"Value","Text"):new List<SelectListItem>())">
                     <option value=""> Seleccione la categoria </option>
-                </select>*@
+                </select>
             </div>
             <div class="form-group mb-2">
                 <input asp-for="NombreUsuario" type="text" class="form-control" />
